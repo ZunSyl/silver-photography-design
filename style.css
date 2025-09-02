@@ -104,7 +104,7 @@ iframe { max-width:100%; }
 .container {
   max-width: 800px;   /* adjust as you prefer (e.g., 960px, 1140px, etc.) */
   margin: 25px auto;   /* centers site and preserves your top/bottom spacing */
-  padding: 0 1rem;     /* side breathing room on small screens */
+  padding: 25px;     /* side breathing room on small screens */
   text-align: left;    /* ensure left-aligned text site-wide */
 }
 
