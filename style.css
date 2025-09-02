@@ -12,6 +12,7 @@ body {
   font-weight: 400;
   font-family: 'Times New Roman', serif;
   color: #000000;
+  /* Removed max-width and margin since Bootstrap .container will handle centering */
 }
 
 /**
@@ -40,7 +41,7 @@ h4,
 h5,
 h6 {
   line-height: 1;
-  text-rendering: optimizeLegibility; /*  voodoo to enable ligatures and kerning | https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
+  text-rendering: optimizeLegibility; /* voodoo to enable ligatures and kerning | https://developer.mozilla.org/en-US/docs/CSS/text-rendering */
   margin-top: 0;
   margin-bottom: 2rem;
   font-weight: 300;
@@ -59,7 +60,7 @@ p {
   margin: 0 auto 1.5em auto; /* bottom margin for paragraphs */
 }
 p + p {
-
+  /* intentionally blank for now */
 }
 
 /**
@@ -68,12 +69,8 @@ p + p {
 q {
   quotes: '\00201C' '\00201D';
 }
-q:before {
-  content: open-quote;
-}
-q:after {
-  content: close-quote;
-}
+q:before { content: open-quote; }
+q:after  { content: close-quote; }
 
 blockquote {
   /*background-color: #F8F8F8;*/
@@ -82,31 +79,33 @@ blockquote {
   padding: .75em 1em;
   font-size:1.8rem;
 }
-blockquote p:last-child {
-  margin-bottom: 0;  
-}
+blockquote p:last-child { margin-bottom: 0; }
 
 /**
  * Layout styles
  */
 
 /* Full size background image */
-html, #container, .inner { background-color:transparent;}
+html, #container, .inner { background-color:transparent; }
 html {
   background:url(background.jpg) center center no-repeat fixed;
   background-size:cover;
 }
-body {
-  max-width:800px;
-  margin:25px auto;
-}
+
+/* Site chrome */
 header, #content, footer { 
   background: rgba(255,255,255, 0.8); 
   padding:25px;
   color:#000008; 
 }
-iframe {
-  max-width:100%;
+iframe { max-width:100%; }
+
+/* NEW: Let Bootstrap container handle centering & width; keep text left-aligned */
+.container {
+  max-width: 1200px;   /* adjust as you prefer (e.g., 960px, 1140px, etc.) */
+  margin: 25px auto;   /* centers site and preserves your top/bottom spacing */
+  padding: 0 1rem;     /* side breathing room on small screens */
+  text-align: left;    /* ensure left-aligned text site-wide */
 }
 
 /* Menu Links */
@@ -115,7 +114,7 @@ ul.main-menu {
   padding: 0;
   display: flex;
   flex-wrap: wrap;
-  justify-content: left;
+  justify-content: flex-start; /* was 'left' (invalid for flex) */
   list-style: none;
 }
 ul.main-menu li a {
@@ -124,18 +123,17 @@ ul.main-menu li a {
   border-bottom: solid transparent 3px;
   color:#274e13;
 }
-ul.main-menu li a:hover {
-  color:#000008;
-}
+ul.main-menu li a:hover { color:#000008; }
 ul.main-menu li a.active {
   color:#000008;
   border-bottom-color:#38761d;
 }
 
 /* Utility classes */
-.hide {
-  display:none;
-}
-.show {
-  display:block;
+.hide { display:none; }
+.show { display:block; }
+
+/* Optional: tighter padding on very small screens */
+@media (max-width: 576px) {
+  .container { padding: 0 0.5rem; }
 }
