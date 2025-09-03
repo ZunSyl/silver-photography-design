@@ -16,14 +16,14 @@ body {
   color: #000000;
 }
 
-/* Increase base font size for all Bootstrap components */
+/* Global Bootstrap body font size for all components */
 :root {
-  --bs-body-font-size: 1.125rem; /* ~18px default text */
+  --bs-body-font-size: 1.125rem; /* ~18px */
 }
 
 @media (min-width: 992px) {
   :root {
-    --bs-body-font-size: 1.1875rem; /* ~19px on larger screens */
+    --bs-body-font-size: 1.1875rem; /* ~19px */
   }
 }
 
@@ -32,7 +32,7 @@ body {
  */
 a {
   font-weight: normal;
-  text-decoration: none; 
+  text-decoration: none;
   color: #8fce00;
 }
 
@@ -47,12 +47,7 @@ small {
 /**
  * Headings
  */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   line-height: 1;
   text-rendering: optimizeLegibility;
   margin-top: 0;
@@ -108,22 +103,22 @@ html {
   background-size: cover;
 }
 
-/* Floating centered panel applied to inner column only */
+/* Floating centered panel (apply .site-panel to your inner column) */
 .site-panel {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.6); /* Adjust last number: 0.6=60% solid */
   padding: 25px;
   border-radius: 8px; /* optional rounded corners */
   text-align: left;
 }
 
-/* Make inner sections transparent so the panel shows through */
+/* Make section wrappers transparent so the panel is one unified box */
 header, #content, footer {
   background: transparent;
   padding: 25px;
   color: #000008;
 }
 
-/* Images and iframes responsive */
+/* Responsive media */
 iframe {
   max-width: 100%;
 }
@@ -167,9 +162,9 @@ ul.main-menu li a.active {
   display: block;
 }
 
-/* Optional: Debug outline to see white panel box (remove when done) */
-/*
+/* Debug outline (for testing only) */
+
 .site-panel {
   outline: 3px dashed hotpink;
 }
-*/
+
