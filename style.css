@@ -1,13 +1,11 @@
-/**
- * Typography & Text styles
- */
 
 /* Base sizing: 1rem = 10px for easy math */
 html {
   font-size: 62.5%;
+  scroll-behavior: smooth; /* smooth scrolling for anchor links */
 }
 
-/* Base text size for mobile */
+/* Typography & Text styles */
 body {
   font-size: 2.0rem; /* ~20px body text */
   line-height: 1.6;
@@ -15,11 +13,8 @@ body {
   font-family: 'Times New Roman', serif;
   color: #000000;
   background: transparent !important;
-}
-
-/* Make html and body full height so background covers screen */
-html, body {
   height: 100%;
+  padding-top: 80px; /* space for fixed navbar */
 }
 
 /**
@@ -120,7 +115,7 @@ html {
   text-align: left;
 }
 
-/* Make section wrappers transparent so the panel is unified */
+/* Transparent wrappers */
 header, #content, footer {
   background: transparent;
   padding: 25px;
@@ -133,31 +128,26 @@ iframe {
 }
 
 /**
- * Menu Links
+ * Nav styling
  */
-ul.main-menu {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  list-style: none;
+
+/* Adjust scroll margin so sections don't hide under navbar */
+.content-region {
+  scroll-margin-top: 100px;
 }
 
-ul.main-menu li a {
-  margin-right: 20px;
-  font-size: 2.0rem;
-  border-bottom: solid transparent 3px;
+/* Green nav pills */
+.nav-pills .nav-link {
   color: #274e13;
+  border-radius: 50px;
+  padding: 0.5rem 1rem;
+  transition: background-color 0.3s;
 }
 
-ul.main-menu li a:hover {
-  color: #000008;
-}
-
-ul.main-menu li a.active {
-  color: #000008;
-  border-bottom-color: #38761d;
+.nav-pills .nav-link.active,
+.nav-pills .nav-link:hover {
+  background-color: #8fce00;
+  color: #fff;
 }
 
 /**
