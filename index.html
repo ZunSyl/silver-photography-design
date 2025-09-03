@@ -21,11 +21,11 @@
     <!-- Custom CSS -->
     <link href="style.css" rel="stylesheet" />
 
-    <!-- jQuery (if needed for your script.js) -->
+    <!-- jQuery (if needed) -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
   </head>
 
-  <!-- Enable Scrollspy and smooth scroll -->
+  <!-- Enable Scrollspy -->
   <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100" tabindex="0">
 
     <!-- Page wrapper -->
@@ -40,9 +40,9 @@
               <h1 class="display-6 m-0">Silver Photography & Design</h1>
             </div>
 
-            <!-- Bootstrap navbar with pill style -->
-            <nav id="mainNav" class="navbar navbar-expand-lg navbar-light bg-transparent p-0">
-              <div class="container-fluid p-0">
+            <!-- Fixed navbar -->
+            <nav id="mainNav" class="navbar navbar-expand-lg fixed-top navbar-light bg-white shadow-sm">
+              <div class="container">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks"
                         aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
@@ -69,18 +69,18 @@
           </header>
 
           <!-- CONTENT -->
-          <div id="container">
+          <div id="container" class="mt-5">
             <div class="inner">
               <div id="content">
 
                 <!-- Home -->
-                <div id="home" class="content-region">
+                <div id="home" class="content-region mt-5">
                   <h1>Welcome to Silver Photography & Design</h1>
                   <h2>Website Structure:</h2>
                   <ul>
-                    <li><b>About:</b> To learn more about our photographer, Sylvia Zuniga, <a href="#about">click here</a>.</li>
-                    <li><b>Catalog:</b> To see services and prices, <a href="#catalog">click here</a>.</li>
-                    <li><b>Contact:</b> To set up a free consultation, <a href="#contact">click here</a>.</li>
+                    <li><b>About:</b> <a href="#about">click here</a>.</li>
+                    <li><b>Catalog:</b> <a href="#catalog">click here</a>.</li>
+                    <li><b>Contact:</b> <a href="#contact">click here</a>.</li>
                   </ul>
                 </div>
 
@@ -88,33 +88,12 @@
                 <div id="about" class="content-region mt-5">
                   <h1>About</h1>
                   <p>
-                    My name is Sylvia Zuniga, and my journey with photography began in 2015 when my mother gifted me an old Nikon camera. 
-                    Despite its limitations, I quickly learned to harness its potential, capturing stunning wildlife images through patience and practice. 
-                    Over time, my passion for photography grew, and wildlife became my primary focus.
+                    My name is Sylvia Zuniga, and my journey with photography began in 2015...
                   </p>
-
                   <div class="d-flex justify-content-center gap-3 flex-wrap my-3">
                     <img src="images/owl.JPG" class="img-fluid" style="max-width:400px;" alt="owl pic">
                     <img src="images/hummingbird.JPG" class="img-fluid" style="max-width:400px;" alt="hummingbird pic">
-                    <img src="images/Eaglewingspic.jpg" class="img-fluid" style="max-width:400px;" alt="eagle pic">
-                    <img src="images/leopardlickpic.jpg" class="img-fluid" style="max-width:400px;" alt="leopard pic">
                   </div>
-
-                  <p>
-                    In 2024, I was introduced to client work when I was commissioned to photograph a bridal shower, wedding ceremony, and reception. 
-                    Initially taking on the project as a favor, I was deeply moved by the joy my photographs brought to the couple.
-                  </p>
-
-                  <div class="d-flex justify-content-center gap-3 flex-wrap my-3">
-                    <img src="images/DSCN3454.JPG" class="img-fluid" style="max-width:400px;" alt="wedding photo 1">
-                    <img src="images/DSCN3516.JPG" class="img-fluid" style="max-width:400px;" alt="wedding photo 2">
-                  </div>
-
-                  <p>
-                    As a result, I upgraded my equipment and expanded my craft into portrait and event photography. 
-                    In addition to photography, I pursued graphic design training in 2022, exploring new creative outlets. 
-                    I now design posters, flyers, invitations, and other forms of art with a focus on blending personal style with each project’s unique needs.
-                  </p>
                 </div>
 
                 <!-- Catalog -->
@@ -123,17 +102,6 @@
                   <div class="image-container">
                     <img src="images/title_page.png" class="img-fluid" alt="title page"><br>
                     <img src="images/about_me.png" class="img-fluid" alt="about me page"><br>
-                    <img src="images/photography_rates_title.png" class="img-fluid" alt="photography rates page"><br>
-                    <img src="images/photography_rates_description.png" class="img-fluid" alt="photography rates description"><br>
-                    <img src="images/weddings_catalog.png" class="img-fluid" alt="wedding rates page"><br>
-                    <img src="images/parties_catalog.png" class="img-fluid" alt="party rates page"><br>
-                    <img src="images/photoshoots_catalog.png" class="img-fluid" alt="photoshoot rates page"><br>
-                    <img src="images/equipment_title.png" class="img-fluid" alt="equipment title page"><br>
-                    <img src="images/camera.png" class="img-fluid" alt="camera page"><br>
-                    <img src="images/graphic_design_title.png" class="img-fluid" alt="graphic design title page"><br>
-                    <img src="images/graphic_design_description.png" class="img-fluid" alt="graphic design description page"><br>
-                    <img src="images/graphic_design_catalog.png" class="img-fluid" alt="graphic design rates"><br>
-                    <img src="images/Thank you for considering page.png" class="img-fluid" alt="thank you page"><br>
                   </div>
                 </div>
 
@@ -143,8 +111,7 @@
                   <p>
                     If you would like to contact me for a free consultation<br><br>
                     <b>Email: szuniga2908@gmail.com</b><br>
-                    <b>Text: (619) 252-0526</b><br><br>
-                    Thank you for considering Silver Photography & Design!
+                    <b>Text: (619) 252-0526</b>
                   </p>
                 </div>
 
