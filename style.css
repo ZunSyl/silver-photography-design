@@ -5,7 +5,7 @@ html {
   scroll-behavior: smooth; /* smooth scrolling for anchor links */
 }
 
-/* Typography & Text styles */
+/* * Typography & Text styles */
 body {
   font-size: 2.0rem; /* ~20px body text */
   line-height: 1.6;
@@ -14,7 +14,7 @@ body {
   color: #000000;
   background: transparent !important;
   height: 100%;
-  padding-top: 80px; /* space for fixed navbar */
+  padding-top: 90px; /* space for fixed navbar */
 }
 
 /**
@@ -128,10 +128,52 @@ iframe {
 }
 
 /**
- * Nav styling
+ * Navbar styling
  */
 
-/* Adjust scroll margin so sections don't hide under navbar */
+/* Semi-transparent centered navbar */
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(6px);
+  max-width: 1100px;
+  padding: 0.5rem 1rem;
+  margin: 0 auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Larger logo */
+.navbar-logo {
+  width: 48px;
+  height: 48px;
+}
+
+/* Brand text styling */
+.navbar-brand span {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #274e13;
+}
+
+/* Flex alignment for brand content */
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Scale up for desktop */
+@media (min-width: 992px) {
+  .navbar-logo {
+    width: 56px;
+    height: 56px;
+  }
+  .navbar-brand span {
+    font-size: 2.6rem;
+  }
+}
+
+/* Sections offset so anchors don't hide under navbar */
 .content-region {
   scroll-margin-top: 100px;
 }
@@ -141,26 +183,13 @@ iframe {
   color: #274e13;
   border-radius: 50px;
   padding: 0.5rem 1rem;
-  transition: background-color 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .nav-pills .nav-link.active,
 .nav-pills .nav-link:hover {
   background-color: #8fce00;
   color: #fff;
-}
-
-/* Semi-transparent centered navbar */
-.custom-navbar {
-  background: rgba(255, 255, 255, 0.6); /* matches .site-panel look */
-  backdrop-filter: blur(6px); /* subtle glass effect */
-  max-width: 1100px; /* keeps it from spanning full width */
-  padding: 0.5rem 1rem;
-}
-
-/* Adjust space so content isn't hidden under the navbar */
-body {
-  padding-top: 90px; /* slightly more for the rounded navbar height */
 }
 
 /**
@@ -175,17 +204,12 @@ body {
 }
 
 /**
- * Responsive typography scaling (safe approach)
- * Mobile stays at 2.0rem; tablets and desktops scale up
+ * Responsive typography scaling
  */
 @media (min-width: 768px) {
-  body {
-    font-size: 2.2rem; /* ~22px */
-  }
+  body { font-size: 2.2rem; } /* ~22px */
 }
 
 @media (min-width: 992px) {
-  body {
-    font-size: 2.4rem; /* ~24px */
-  }
+  body { font-size: 2.4rem; } /* ~24px */
 }
