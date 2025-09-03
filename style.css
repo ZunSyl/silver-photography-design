@@ -225,6 +225,20 @@ iframe {
   font-weight: 500;
 }
 
+/* Center catalog images */
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* space between images */
+}
+
+.image-container img {
+  max-width: 900px; /* limits width for large screens */
+  width: 100%;       /* scales down on smaller screens */
+  height: auto;
+}
+
 /**
  * Responsive typography scaling
  */
