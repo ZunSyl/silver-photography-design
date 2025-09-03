@@ -110,7 +110,7 @@ html {
 
 /* Floating centered panel applied to inner column only */
 .site-panel {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.5);
   padding: 25px;
   border-radius: 8px; /* optional rounded corners */
   text-align: left;
