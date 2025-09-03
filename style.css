@@ -203,6 +203,20 @@ iframe {
   display: block;
 }
 
+/* Catalog index navigation */
+.catalog-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.catalog-index .btn {
+  border-radius: 20px;
+  font-size: 1.4rem;
+  padding: 0.4rem 1rem;
+}
+
 /**
  * Responsive typography scaling
  */
