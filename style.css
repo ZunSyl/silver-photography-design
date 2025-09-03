@@ -14,6 +14,12 @@ body {
   font-weight: 400;
   font-family: 'Times New Roman', serif;
   color: #000000;
+  background: transparent !important; /* ensure background image is visible */
+}
+
+/* Make html and body full height so background covers screen */
+html, body {
+  height: 100%;
 }
 
 /* Global Bootstrap body font size for all components */
@@ -105,7 +111,7 @@ html {
 
 /* Floating centered panel (apply .site-panel to your inner column) */
 .site-panel {
-  background: rgba(255, 255, 255, 0.6); /* Adjust last number: 0.6=60% solid */
+  background: rgba(255, 255, 255, 0.6); /* Adjust last number for transparency */
   padding: 25px;
   border-radius: 8px; /* optional rounded corners */
   text-align: left;
@@ -163,8 +169,8 @@ ul.main-menu li a.active {
 }
 
 /* Debug outline (for testing only) */
-
+/*
 .site-panel {
   outline: 3px dashed hotpink;
 }
-
+*/
