@@ -271,9 +271,9 @@ iframe {
 }
 
 /* Catalog button tweaks for mobile */
-@media (max-width: 570px) {
+@media (max-width: 510px) {
   .catalog-index .btn {
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     padding: 0.4rem 1rem;
   }
 }
