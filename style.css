@@ -150,6 +150,19 @@ iframe {
   color: #fff;
 }
 
+/* Semi-transparent centered navbar */
+.custom-navbar {
+  background: rgba(255, 255, 255, 0.6); /* matches .site-panel look */
+  backdrop-filter: blur(6px); /* subtle glass effect */
+  max-width: 1100px; /* keeps it from spanning full width */
+  padding: 0.5rem 1rem;
+}
+
+/* Adjust space so content isn't hidden under the navbar */
+body {
+  padding-top: 90px; /* slightly more for the rounded navbar height */
+}
+
 /**
  * Utility classes
  */
