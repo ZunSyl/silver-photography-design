@@ -205,10 +205,17 @@ iframe {
 
 /* Catalog index navigation */
 .catalog-index {
+  position: sticky;
+  top: 100px; /* height offset to clear fixed navbar */
+  background: rgba(255, 255, 255, 0.8); /* matches site-panel look */
+  backdrop-filter: blur(6px);
+  padding: 0.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
+  border-radius: 8px;
+  z-index: 10; /* ensures it stays above images */
 }
 
 .catalog-index .btn {
