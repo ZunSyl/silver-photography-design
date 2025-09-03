@@ -235,3 +235,31 @@ iframe {
 @media (min-width: 992px) {
   body { font-size: 2.4rem; } /* ~24px */
 }
+
+/* ===========================================
+   MOBILE OPTIMIZATIONS
+   =========================================== */
+
+/* Navbar tweaks for mobile */
+@media (max-width: 576px) {
+  .navbar-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .navbar-brand span {
+    font-size: 1.8rem;
+  }
+
+  .custom-navbar {
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+/* Catalog button tweaks for mobile */
+@media (max-width: 576px) {
+  .catalog-index .btn {
+    font-size: 1.4rem;
+    padding: 0.4rem 1rem;
+  }
+}
