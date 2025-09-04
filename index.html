@@ -171,43 +171,96 @@
     <!-- Your existing router script -->
     <script src="script.js"></script>
 
-    <!-- Smooth scroll for catalog dropdown -->
-    <script>
+    <!-- Smooth scroll -->
+   <script>
       (function () {
-        const select = document.getElementById('catalogJump');
-        if (!select) return;
-    
-        function scrollToTarget(hash) {
-          if (!hash) return;
-    
-          // Ensure the catalog section is visible (keeps your existing logic)
-          const catalog = document.getElementById('catalog');
-          if (catalog && catalog.classList.contains('hide')) {
-            document.querySelectorAll('.content-region').forEach(el => el.classList.add('hide'));
-            catalog.classList.remove('hide');
-          }
-    
-          const el = document.querySelector(hash);
-          if (el) {
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            history.replaceState(null, '', '#catalog'); // keep URL neat
-          }
+        // Stop the browser from restoring old scroll positions
+        if ('scrollRestoration' in history) {
+          history.scrollRestoration = 'manual';
         }
-    
-        // Handle user selection
-        select.addEventListener('change', function () {
-          scrollToTarget(this.value);
+      
+        // Keep a CSS var of the navbar height so we can reuse it in CSS if needed
+        function setNavVar() {
+          const nav = document.querySelector('.custom-navbar');
+          const h = nav ? nav.offsetHeight : 0;
+          document.documentElement.style.setProperty('--nav-h', h + 'px');
+        }
+        setNavVar();
+        window.addEventListener('resize', setNavVar);
+        window.addEventListener('load', setNavVar);
+      
+        // Compute scroll offset (navbar + any visible sticky catalog bar)
+        function calcOffset() {
+          const nav = document.querySelector('.custom-navbar');
+          const navH = nav ? nav.offsetHeight : 0;
+      
+          // Only add the catalog bar height if it's visible (when you're on #catalog)
+          const bar = document.querySelector('.catalog-index');
+          const barVisible = bar && bar.offsetParent !== null; // not display:none
+          const barH = barVisible ? bar.offsetHeight : 0;
+      
+          return navH + barH + 8; // tiny breathing room
+        }
+      
+        // Scroll to a section's top with the proper offset
+        function scrollToSection(id, behavior = 'auto') {
+          const el = document.getElementById(id);
+          const top = el
+            ? el.getBoundingClientRect().top + window.pageYOffset - calcOffset()
+            : 0;
+          window.scrollTo({ top: Math.max(0, top), behavior });
+        }
+      
+        // Activate/scroll when the hash changes (or on first load)
+        function activateFromHash(behavior = 'auto') {
+          const id = (location.hash || '#home').slice(1);
+          // Close mobile menu if open
+          const collapse = document.getElementById('navLinks');
+          if (collapse && collapse.classList.contains('show')) {
+            bootstrap.Collapse.getOrCreateInstance(collapse).hide();
+          }
+          // Wait a frame so layout is stable, then scroll
+          requestAnimationFrame(() => scrollToSection(id, behavior));
+        }
+      
+        // Let navbar links update the hash normally; just ensure we scroll with offset
+        document.querySelectorAll('#mainNav .nav-link[href^="#"]').forEach(a => {
+          a.addEventListener('click', () => {
+            // default behavior updates the hash; our hashchange handler will run
+          });
         });
-    
-        // Optional: If the URL already has a hash that matches an option,
-        // preselect it so the dropdown reflects the current view.
-        const current = location.hash;
-        if (current) {
-          const match = Array.from(select.options).find(o => o.value === current);
-          if (match) select.value = current;
+      
+        // Catalog dropdown smooth scroll (with offset), but keep URL nice as #catalog
+        const select = document.getElementById('catalogJump');
+        if (select) {
+          select.addEventListener('change', function () {
+            const hash = this.value;            // e.g. "#rates-page"
+            const target = hash ? document.querySelector(hash) : null;
+            if (!target) return;
+      
+            // Ensure we're in the catalog area and then scroll to that image anchor
+            // (everything is visible on this site, so we just scroll)
+            const y = target.getBoundingClientRect().top + window.pageYOffset - calcOffset();
+            window.scrollTo({ top: y, behavior: 'smooth' });
+      
+            // Keep the URL at #catalog so users don't get deep hash spam
+            history.replaceState(null, '', '#catalog');
+          });
+      
+          // If the page loads with a hash matching an option, mirror it in the dropdown
+          const current = location.hash;
+          if (current) {
+            const match = Array.from(select.options).find(o => o.value === current);
+            if (match) select.value = current;
+          }
         }
+      
+        // Run on first load and whenever the hash changes
+        window.addEventListener('load', () => activateFromHash('auto'));
+        window.addEventListener('hashchange', () => activateFromHash('auto'));
       })();
-    </script>
+  </script>
+
 
     
   </body>
