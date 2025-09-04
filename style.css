@@ -229,7 +229,9 @@ iframe {
   body { font-size: 2.4rem; }
 }
 
-/* MOBILE OPTIMIZATIONS */
+/* =========================
+    MOBILE OPTIMIZATIONS 
+============================*/
 @media (max-width: 576px) {
   .navbar-logo {
     width: 36px;
@@ -243,6 +245,19 @@ iframe {
   }
 }
 
+/* Scaling for mobile only */
+  body {
+    font-size: 1.6rem; /* smaller than default 2.0rem */
+  }
+  h1 { font-size: 2.6rem; }
+  h2 { font-size: 2.2rem; }
+  h3 { font-size: 1.9rem; }
+  h4 { font-size: 1.6rem; }
+  h5 { font-size: 1.4rem; }
+  h6 { font-size: 1.3rem; }
+  blockquote { font-size: 1.5rem; }
+}
+
 /* Catalog button tweaks for very small screens */
 @media (max-width: 510px) {
   .catalog-index .btn {
@@ -251,9 +266,7 @@ iframe {
   }
 }
 
-/* ===========================
-   Compact sticky catalog on mobile
-   =========================== */
+/* Compact sticky catalog on mobile*/
 @media (max-width: 576px) {
   .catalog-index {
     top: 70px;                 /* closer to navbar */
