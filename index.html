@@ -112,15 +112,19 @@
               If you are interested in a free consoltation, <a href="#contact">contact me</a>.            
             </p>
 
-            <!-- Quick jump buttons -->
-            <div class="catalog-index mb-4">
-              <a href="#catalog" data-scroll="#title-page" class="btn btn-outline-success btn-sm">Title Page</a>
-              <a href="#catalog" data-scroll="#about-page" class="btn btn-outline-success btn-sm">About</a>
-              <a href="#catalog" data-scroll="#rates-page" class="btn btn-outline-success btn-sm">Photography Rates</a>
-              <a href="#catalog" data-scroll="#weddings-page" class="btn btn-outline-success btn-sm">Weddings</a>
-              <a href="#catalog" data-scroll="#parties-page" class="btn btn-outline-success btn-sm">Parties</a>
-              <a href="#catalog" data-scroll="#photoshoots-page" class="btn btn-outline-success btn-sm">Photoshoots</a>
-              <a href="#catalog" data-scroll="#graphic-page" class="btn btn-outline-success btn-sm">Graphic Design</a>
+            <!-- Quick jump dropdown -->
+            <div class="catalog-index mb-4 d-flex align-items-center gap-2">
+              <label for="catalogJump" class="form-label m-0">Jump to:</label>
+              <select id="catalogJump" class="form-select form-select-sm" style="max-width: 280px;">
+                <option value="">— Select a page —</option>
+                <option value="#title-page">Title Page</option>
+                <option value="#about-page">About</option>
+                <option value="#rates-page">Photography Rates</option>
+                <option value="#weddings-page">Weddings</option>
+                <option value="#parties-page">Parties</option>
+                <option value="#photoshoots-page">Photoshoots</option>
+                <option value="#graphic-page">Graphic Design</option>
+              </select>
             </div>
 
             <div class="image-container">
@@ -167,28 +171,44 @@
     <!-- Your existing router script -->
     <script src="script.js"></script>
 
-    <!-- Smooth scroll for catalog links -->
+    <!-- Smooth scroll for catalog dropdown -->
     <script>
-      document.querySelectorAll('.catalog-index [data-scroll]').forEach(function(link){
-        link.addEventListener('click', function(e){
-          e.preventDefault();
-          const targetSel = this.getAttribute('data-scroll');
-
-          // Ensure the catalog section is visible
+      (function () {
+        const select = document.getElementById('catalogJump');
+        if (!select) return;
+    
+        function scrollToTarget(hash) {
+          if (!hash) return;
+    
+          // Ensure the catalog section is visible (keeps your existing logic)
           const catalog = document.getElementById('catalog');
           if (catalog && catalog.classList.contains('hide')) {
             document.querySelectorAll('.content-region').forEach(el => el.classList.add('hide'));
             catalog.classList.remove('hide');
           }
-
-          // Smooth scroll to the image
-          const target = document.querySelector(targetSel);
-          if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            history.replaceState(null, '', '#catalog');
+    
+          const el = document.querySelector(hash);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            history.replaceState(null, '', '#catalog'); // keep URL neat
           }
+        }
+    
+        // Handle user selection
+        select.addEventListener('change', function () {
+          scrollToTarget(this.value);
         });
-      });
+    
+        // Optional: If the URL already has a hash that matches an option,
+        // preselect it so the dropdown reflects the current view.
+        const current = location.hash;
+        if (current) {
+          const match = Array.from(select.options).find(o => o.value === current);
+          if (match) select.value = current;
+        }
+      })();
     </script>
+
+    
   </body>
 </html>
