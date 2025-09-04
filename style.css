@@ -225,6 +225,65 @@ iframe {
   font-weight: 500;
 }
 
+/* Catalog dropdown styling */
+.catalog-index {
+  position: sticky;
+  top: 100px;                /* keeps it clear of the fixed navbar */
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(6px);
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+/* Label next to the dropdown */
+.catalog-index .form-label {
+  font-size: 1.8rem;         /* matches your larger UI text */
+  color: #274e13;
+  white-space: nowrap;
+}
+
+/* The dropdown itself */
+#catalogJump.form-select.form-select-sm {
+  font-size: 1.6rem;         /* readable but not huge */
+  line-height: 1.4;
+  padding: 0.6rem 2.4rem 0.6rem 1rem;  /* comfy tap target */
+  border-radius: 25px;       /* matches pill vibe of your buttons */
+  border-color: #8fce00;
+  color: #274e13;
+  background-color: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+}
+
+/* Focus state to match your green palette */
+#catalogJump:focus {
+  border-color: #8fce00;
+  box-shadow: 0 0 0 0.2rem rgba(143, 206, 0, 0.25);
+}
+
+/* Make sure anchors land nicely below the navbar */
+.image-container img {
+  scroll-margin-top: 110px;  /* complements .content-region margin for images */
+}
+
+/* Mobile tweaks */
+@media (max-width: 576px) {
+  .catalog-index {
+    gap: 0.5rem;
+  }
+  .catalog-index .form-label {
+    font-size: 1.6rem;
+  }
+  #catalogJump.form-select.form-select-sm {
+    font-size: 1.4rem;
+    padding: 0.5rem 2.2rem 0.5rem 0.9rem;
+  }
+}
+
 /* Center catalog images */
 .image-container {
   display: flex;
